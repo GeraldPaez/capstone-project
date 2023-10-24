@@ -1,36 +1,36 @@
 export const tokensLightCol = {
     grey: {
-        100: "#e7f5fc",
-        200: "#d0ecf9",
-        300: "#b8e2f6",
-        400: "#a1d9f3",
-        500: "#89cff0",
-        600: "#6ea6c0",
-        700: "#527c90",
-        800: "#375360",
-        900: "#1b2930"
+        100: "#cdd7e2",
+        200: "#9ab0c4",
+        300: "#6888a7",
+        400: "#356189",
+        500: "#03396c",
+        600: "#022e56",
+        700: "#022241",
+        800: "#01172b",
+        900: "#010b16"
     },
     primary: {
-        100: "#edf4fa",
-        200: "#dce9f5",
-        300: "#caddf1",
-        400: "#b9d2ec",
-        500: "#a7c7e7",
-        600: "#869fb9",
-        700: "#64778b",
-        800: "#43505c",
-        900: "#21282e"
+        100: "#e0eaef",
+        200: "#c1d5e0",
+        300: "#a2c1d0",
+        400: "#83acc1",
+        500: "#6497b1",
+        600: "#50798e",
+        700: "#3c5b6a",
+        800: "#283c47",
+        900: "#141e23"
     },
     secondary: {
-        100: "#d9e1f9",
-        200: "#b3c3f3",
-        300: "#8da5ed",
-        400: "#6787e7",
-        500: "#4169e1",
-        600: "#3454b4",
-        700: "#273f87",
-        800: "#1a2a5a",
-        900: "#0d152d"
+        100: "#ccdeea",
+        200: "#99bdd5",
+        300: "#669dc0",
+        400: "#337cab",
+        500: "#005b96",
+        600: "#004978",
+        700: "#00375a",
+        800: "#00243c",
+        900: "#00121e"
     },
 };
 
@@ -61,28 +61,28 @@ export const themeSettings = (mode) => {
               // palette values for dark mode
               primary: {
                 ...tokensLightCol.primary,
-                main: tokensLightCol.primary[400],
-                light: tokensLightCol.primary[400],
+                main: tokensLightCol.primary[500],
+                light: tokensLightCol.primary[500],
               },
               secondary: {
                 ...tokensLightCol.secondary,
-                main: tokensLightCol.secondary[300],
+                main: tokensLightCol.secondary[500],
               },
               neutral: {
                 ...tokensLightCol.grey,
                 main: tokensLightCol.grey[500],
               },
               background: {
-                default: tokensLightCol.primary[600],
-                alt: tokensLightCol.primary[500],
+                default: tokensLightCol.primary[900],
+                alt: tokensLightCol.primary[600],
               },
             }
           : {
               // palette values for light mode
               primary: {
                 ...tokensDarkCol.primary,
-                main: tokensLightCol.grey[100],
-                light: tokensLightCol.grey[100],
+                main: tokensLightCol.grey[400],
+                light: tokensLightCol.grey[400],
               },
               secondary: {
                 ...tokensDarkCol.secondary,
@@ -95,35 +95,35 @@ export const themeSettings = (mode) => {
               },
               background: {
                 default: tokensLightCol.grey[100],
-                alt: tokensLightCol.grey[50],
+                alt: tokensLightCol.grey[200],
               },
             }),
       },
       typography: {
-        fontFamily: ["Inter", "sans-serif"].join(","),
+        fontFamily: ["Inter", "Source Sans Pro"].join(","),
         fontSize: 12,
         h1: {
-          fontFamily: ["Inter", "sans-serif"].join(","),
+          fontFamily: ["Inter", "Source Sans Pro"].join(","),
           fontSize: 40,
         },
         h2: {
-          fontFamily: ["Inter", "sans-serif"].join(","),
+          fontFamily: ["Inter", "Source Sans Pro"].join(","),
           fontSize: 32,
         },
         h3: {
-          fontFamily: ["Inter", "sans-serif"].join(","),
+          fontFamily: ["Inter", "Source Sans Pro"].join(","),
           fontSize: 24,
         },
         h4: {
-          fontFamily: ["Inter", "sans-serif"].join(","),
+          fontFamily: ["Inter", "Source Sans Pro"].join(","),
           fontSize: 20,
         },
         h5: {
-          fontFamily: ["Inter", "sans-serif"].join(","),
+          fontFamily: ["Inter", "Source Sans Pro"].join(","),
           fontSize: 16,
         },
         h6: {
-          fontFamily: ["Inter", "sans-serif"].join(","),
+          fontFamily: ["Inter", "Source Sans Pro"].join(","),
           fontSize: 14,
         },
       },
