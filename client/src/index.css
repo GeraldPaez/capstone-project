@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
 html,
 body,
@@ -6,5 +6,211 @@ body,
 .app {
   height: 100%;
   width: 100%;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Source Sans Pro";
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ccd1d1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #839192;
+}
+
+/* Handle on Hover */
+::-webkit-scrollbar-track:hover {
+  background: #ccd1d1;
+}
+
+h1.inv {
+  width: auto;
+  text-align: center;
+  color: #d4ac0d;
+}
+
+select.pcatbutton {
+  padding: 5px;
+  cursor: pointer;
+}
+
+input {
+  display: block;
+  width: 66%;
+  padding: 15px;
+  border: 0;
+  color: black;
+  border-radius: 3px;
+  background-color: whitesmoke;
+}
+
+.button2 {
+  display: block;
+  width: 66%;
+  cursor: pointer;
+  padding: 15px;
+  font-weight: bold;
+  font-size: medium;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  background-color: #d4ac0d;
+}
+
+select.pcatbutton {
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.lst {
+  text-align: left;
+  margin-left: 5px;
+  font-size: 23px;
+}
+
+table.tbl {
+  width: 50%;
+  margin-left: 22rem;
+}
+
+h2 {
+  margin-left: 22rem;
+}
+
+p.items {
+  margin-left: 22rem;
+}
+
+p.items2 {
+  margin-left: 22rem;
+}
+
+p.items3 {
+  margin-left: 22rem;
+}
+
+p.items4 {
+  margin-left: 22rem;
+}
+
+p.items5 {
+  margin-left: 22rem;
+  color: white;
+}
+
+.pcatbutton {
+  margin-right: 30px;
+  display: inline-flex;
+  width: 150px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* Style for the select options */
+.pcatbutton option {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Reference Material-UI Table styles */
+.tbl {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.tbl th,
+.tbl td {
+  border: 2px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tbl th {
+  background-color: #f4f4f4;
+}
+
+.tbl tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.tbl td button {
+  margin-top: 2px;
+  cursor: pointer;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .tbl {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .tbl th,
+  .tbl td {
+    min-width: 120px;
+  }
+
+  .tbl td button {
+    display: block;
+    margin: 8px auto;
+  }
+}
+
+/* App.css */
+.App {
+  text-align: center;
+  /* Add more general styles for the app container if needed */
+}
+
+.preloader {
+  /* Styles for the preloader */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* App.css */
+.landing-page {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.navbar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.welcome-section {
+  padding: 100px 0;
+}
+
+/* Additional styling for animations if needed */

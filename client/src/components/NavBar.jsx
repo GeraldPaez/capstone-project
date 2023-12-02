@@ -3,9 +3,12 @@ import {
   LightModeOutlined,
   DarkModeOutlined,
   Menu as MenuIcon,
-  Search,
+  // Search,
   ArrowDropDownOutlined,
 } from "@mui/icons-material";
+// import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FlexBetween from "components/FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
@@ -17,15 +20,17 @@ import {
   Box,
   Toolbar,
   IconButton,
-  InputBase,
+  // InputBase,
   Menu,
   MenuItem,
   useTheme,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
@@ -46,8 +51,8 @@ const NavBar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
           <IconButton onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
             <MenuIcon />
           </IconButton>
-          <FlexBetween
-            backgroundColor={theme.palette.primary[600]}
+          {/* <FlexBetween
+            backgroundColor={theme.palette.secondary[900]}
             borderRadius="12px"
             gap="7rem"
             p="0.1rem 1.5rem"
@@ -56,7 +61,7 @@ const NavBar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
             <IconButton>
               <Search />
             </IconButton>
-          </FlexBetween>
+          </FlexBetween> */}
         </FlexBetween>
 
         {/* Right Side */}
@@ -95,7 +100,7 @@ const NavBar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
                   fontSize="0.90rem"
                   sx={{ color: theme.palette.secondary[300] }}
                 >
-                  {user.name}
+                  {user.firstName}
                 </Typography>
                 <Typography
                   fontSize="0.75rem"
@@ -114,7 +119,52 @@ const NavBar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
-              <MenuItem onClick={handleClose}>Log Out</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  navigate("/setting");
+                }}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary[700],
+                  },
+                  padding: "10px 20px",
+                }}
+              >
+                <SettingsOutlinedIcon
+                  sx={{
+                    fontSize: 20,
+                    marginRight: 1,
+                    color: theme.palette.primary[300],
+                  }}
+                />
+                <Typography variant="body1" color="primary" fontWeight="bold">
+                  Settings
+                </Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  navigate("/login");
+                }}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary[700],
+                  },
+                  padding: "10px 20px",
+                }}
+              >
+                <ExitToAppOutlinedIcon
+                  sx={{
+                    fontSize: 20,
+                    marginRight: 1,
+                    color: theme.palette.primary[300],
+                  }}
+                />
+                <Typography variant="body1" color="primary" fontWeight="bold">
+                  Log Out
+                </Typography>
+              </MenuItem>
             </Menu>
           </FlexBetween>
         </FlexBetween>

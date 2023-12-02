@@ -1,8 +1,8 @@
-import React from 'react'
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 import { Box, useMediaQuery } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import NavBar from "components/NavBar";
 import SideBar from "components/SideBar";
 import { useGetUserQuery } from "state/api";
@@ -14,7 +14,7 @@ const Layout = () => {
   const { data } = useGetUserQuery(userId);
 
   return (
-    <Box display={ isNonMobile ? "flex" : "block" }width="100%" height="100%">
+    <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
       <SideBar
         user={data || {}}
         isNonMobile={isNonMobile}
