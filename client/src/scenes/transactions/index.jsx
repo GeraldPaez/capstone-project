@@ -1,21 +1,8 @@
 // Transaction Component
 import React, { useState } from "react";
-import {
-  Box,
-  useTheme,
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  TextField,
-  DialogActions,
-} from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import {
-  useGetTransactionsQuery,
-  useAddTransactionMutation,
-  useDeleteTransactionMutation,
-} from "state/api";
+import { useGetTransactionsQuery } from "state/api";
 import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 
@@ -36,40 +23,6 @@ const Transactions = () => {
     search,
   });
   console.log("data", data);
-
-  const [isAddDialogOpen, setAddDialogOpen] = useState(false);
-  const [newTransaction, setNewTransaction] = useState({
-    ProdID: "",
-    Date: "",
-    Name: "",
-    Unit: "",
-    Quantity: 0,
-    Price: 0,
-  });
-
-  const [deleteTransactionId, setDeleteTransactionId] = useState(null);
-  const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
-
-  const addTransactionMutation = useAddTransactionMutation();
-  const deleteTransactionMutation = useDeleteTransactionMutation();
-
-  const handleAddTransaction = async () => {
-    try {
-      await addTransactionMutation.mutateAsync(newTransaction);
-      setAddDialogOpen(false);
-    } catch (error) {
-      console.error("Error adding transaction:", error);
-    }
-  };
-
-  const handleDeleteTransaction = async () => {
-    try {
-      await deleteTransactionMutation.mutate(deleteTransactionId);
-      setDeleteDialogOpen(false);
-    } catch (error) {
-      console.error("Error deleting transaction:", error);
-    }
-  };
 
   const columns = [
     {
@@ -112,15 +65,6 @@ const Transactions = () => {
       headerName: "Cost",
       flex: 1,
     },
-    {
-      field: "actions",
-      headerName: "Actions",
-      sortable: false,
-      renderCell: (params) => (
-        <Button onClick={() => setDeleteDialogOpen(true)}>Delete</Button>
-      ),
-      flex: 1,
-    },
   ];
 
   return (
@@ -137,11 +81,11 @@ const Transactions = () => {
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: "#D4AC0D",
-            color: theme.palette.primary[800],
+            color: theme.palette.grey[100],
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: theme.palette.primary[800],
+            backgroundColor: theme.palette.grey[100],
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: "#D4AC0D",
@@ -174,49 +118,6 @@ const Transactions = () => {
           }}
         />
       </Box>
-      <Dialog open={isAddDialogOpen} onClose={() => setAddDialogOpen(false)}>
-        <DialogTitle>Add Transaction</DialogTitle>
-        <DialogContent>
-          {/* Form for adding a new transaction */}
-          <TextField
-            label="Product ID"
-            value={newTransaction.ProdID}
-            onChange={(e) =>
-              setNewTransaction({ ...newTransaction, ProdID: e.target.value })
-            }
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Date"
-            value={newTransaction.Date}
-            onChange={(e) =>
-              setNewTransaction({ ...newTransaction, Date: e.target.value })
-            }
-            fullWidth
-            margin="normal"
-          />
-          {/* ... (Add other form fields based on your requirements) */}
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setAddDialogOpen(false)}>Cancel</Button>
-          <Button onClick={handleAddTransaction}>Add</Button>
-        </DialogActions>
-      </Dialog>
-
-      <Dialog
-        open={isDeleteDialogOpen}
-        onClose={() => setDeleteDialogOpen(false)}
-      >
-        <DialogTitle>Delete Transaction</DialogTitle>
-        <DialogContent>
-          <p>Are you sure you want to delete this transaction?</p>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setDeleteDialogOpen(false)}>Cancel</Button>
-          <Button onClick={handleDeleteTransaction}>Delete</Button>
-        </DialogActions>
-      </Dialog>
     </Box>
   );
 };
