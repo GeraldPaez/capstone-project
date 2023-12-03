@@ -248,7 +248,7 @@ const Settings = () => {
                   color="primary"
                   sx={{ mt: 2 }}
                 >
-                  Update Personal Information
+                  Save
                 </Button>
               </Form>
             </Formik>

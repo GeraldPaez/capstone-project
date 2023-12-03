@@ -69,7 +69,10 @@ const Transactions = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="Transactions" subtitle="Entire list of transactions" />
+      <Header
+        title="Sales Transaction"
+        subtitle="Entire list of transactions"
+      />
       <Box
         height="80vh"
         sx={{
@@ -85,7 +88,7 @@ const Transactions = () => {
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: theme.palette.grey[100],
+            backgroundColor: theme.palette.primary[800],
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: "#D4AC0D",
